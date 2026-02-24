@@ -5,42 +5,37 @@ A comprehensive system designed to detect AI-generated fraud content, including 
 ## Tech Stack
 
 ### 1. Programming
-*   **Python:** The core language for AI/ML development and media processing.
-*   **TypeScript / JavaScript:** For interactive user interfaces.
+*   **Python:** The core language for AI/ML development (using Jupyter for research).
+*   **JavaScript:** For frontend interactivity.
 
 ### 2. Frontend
-*   **Next.js (React):** Web dashboard for analyzing uploaded content.
-*   **Tailwind CSS:** Modern UI styling.
+*   **HTML, CSS, Bootstrap:** For a responsive web interface.
 
 ### 3. Backend
-*   **FastAPI:** High-performance asynchronous Python framework for serving ML models over REST APIs.
+*   **Flask:** Lightweight Python framework for serving models and application logic.
 
 ### 4. Machine Learning
-*   **PyTorch:** Primary framework for deep learning models.
+*   **TensorFlow / Keras & PyTorch:** Primary deep learning frameworks.
 *   **Scikit-Learn:** Baseline models and evaluation metrics.
 
-### 5. Computer Vision (Deepfake Detection)
-*   **OpenCV:** Image/video frame processing.
-*   **XceptionNet / EfficientNet:** Detecting pixel-level facial manipulations.
+### 5. Computer Vision
+*   **OpenCV:** Image and video processing for deepfake detection.
 
-### 6. Audio Processing (Voice Cloning Detection)
-*   **Librosa:** Audio feature extraction.
-*   **Wav2Vec 2.0 / ResNet:** Detecting synthetic audio artifacts.
+### 6. Audio Processing
+*   **Librosa:** Audio feature extraction for voice cloning detection.
 
-### 7. NLP (SMS & Text Detection)
-*   **Hugging Face Transformers:** AI text detection using models like RoBERTa or specialized detectors.
+### 7. NLP (SMS Detection)
+*   **NLTK:** Natural Language Toolkit for text analysis and fraud detection.
 
 ### 8. Database
-*   **PostgreSQL:** Securely storing user accounts and scan metadata.
-*   **AWS S3 / Local Storage:** Temporary storage for media files during analysis.
+*   **ChromaDB:** Vector database for managing embeddings and retrieval.
 
 ### 9. Security
-*   **JWT & OAuth2:** API access and authentication.
-*   **Rate Limiting:** Protection against bot spam.
+*   **JWT Authentication & AES Encryption:** Secure access and data protection.
 
 ### 10. Deployment & Tools
-*   **Docker:** Containerizing the stack for consistent deployment.
-*   **GitHub Actions:** Continuous Integration.
+*   **Docker:** Containerization.
+*   **Git & GitHub:** Version control and collaboration.
 
 ## Directory Structure
 *   `backend/`: FastAPI application and API routes.

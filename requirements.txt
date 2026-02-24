@@ -3,3 +3,14 @@ scikit-learn
 pandas
 numpy
 joblib
+tensorflow
+torch
+torchvision
+torchaudio
+nltk
+opencv-python
+librosa
+chromadb
+PyJWT
+cryptography
+python-dotenv
