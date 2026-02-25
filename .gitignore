@@ -1,0 +1,26 @@
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Model outputs
+ml_models/**/saved_model/
+ml_models/**/results/
+*.pt
+*.bin
+*.safetensors
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db

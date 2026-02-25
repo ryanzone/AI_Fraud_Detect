@@ -1,16 +1,38 @@
-flask
+# Web Backend
+Flask
+flask-cors
+
+# NLP / Transformers
+transformers
+datasets
+torch
+
+# Classical ML
 scikit-learn
+joblib
 pandas
 numpy
-joblib
-tensorflow
-torch
-torchvision
+torch  
 torchaudio
-nltk
+
+# Vision
+torchvision
 opencv-python
+
+# Audio
+torchaudio
 librosa
+
+# NLP Utilities
+nltk
+
+# Vector DB
 chromadb
+
+# Security
 PyJWT
 cryptography
 python-dotenv
+
+# Utilities
+tqdm
