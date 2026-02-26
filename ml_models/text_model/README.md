@@ -122,3 +122,5 @@ text_model/
 ✔ Stable Training  
 ✔ High Classification Performance  
 ✔ Production-Ready Baseline Model  
+
+@author ryan john mathew
