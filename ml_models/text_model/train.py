@@ -28,10 +28,7 @@ def tokenize(batch):
 # ----------------------
 dataset = load_dataset("fraud_text.csv")
 dataset = dataset.map(tokenize, batched=True)
-dataset = dataset.train_test_split(
-    test_size=0.2,
-    stratify_by_column="label"
-)
+dataset = dataset.train_test_split(test_size=0.2)
 
 dataset = dataset.remove_columns(["text"])
 dataset.set_format("torch")
@@ -71,13 +68,12 @@ training_args = TrainingArguments(
     num_train_epochs=EPOCHS,
     per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=BATCH_SIZE,
-    eval_strategy="epoch",
+    eval_strategy="epoch",         # v5 name
     logging_strategy="epoch",
     save_strategy="epoch",
     learning_rate=LEARNING_RATE,
     load_best_model_at_end=True,
-    report_to="none",
-    fp16=True
+    report_to="none"               # prevents wandb auto-init issues
 )
 
 # ----------------------

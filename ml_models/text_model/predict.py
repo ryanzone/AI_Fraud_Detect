@@ -1,12 +1,7 @@
 import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 model = DistilBertForSequenceClassification.from_pretrained("./saved_model")
-model.to(device)   # 🔥 move model to GPU
-model.eval()
-
 tokenizer = DistilBertTokenizer.from_pretrained("./saved_model")
 
 def predict_text(text):
@@ -16,9 +11,6 @@ def predict_text(text):
         truncation=True,
         padding=True
     )
-
-    # 🔥 move tensors to GPU
-    inputs = {k: v.to(device) for k, v in inputs.items()}
 
     with torch.no_grad():
         outputs = model(**inputs)
