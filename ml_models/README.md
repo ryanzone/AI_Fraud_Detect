@@ -34,3 +34,7 @@ This folder contains the computer vision pipeline, designed for image-based bina
 * **Execution:** `train.py` contains the training loop utilizing the Adam optimizer over 5 epochs.
 
 
+* **Execution:** `inference.py` runs real-world inferences using the resulting `.pth` weights exported to the `saved_model/` folder. 
+values: 
+1. Using Real image values'fake image': 0.1608, 'real image': 0.8391 
+2. Using Fake image values'fake image': 0.5215, 'real image': 0.4784 
