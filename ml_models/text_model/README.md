@@ -122,3 +122,9 @@ text_model/
 ✔ Stable Training  
 ✔ High Classification Performance  
 ✔ Production-Ready Baseline Model  
+
+
+## Values:
+
+- Legit sample  → {'label': 'Legitimate', 'confidence': 0.9934, 'legit_probability': 0.9934, 'fraud_probability': 0.0066}
+- Fraud sample  → {'label': 'Fraudulent', 'confidence': 0.9912, 'legit_probability': 0.0088, 'fraud_probability': 0.9912}
