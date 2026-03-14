@@ -10,8 +10,10 @@ __pycache__/
 
 # Model outputs
 ml_models/**/saved_model/
+ml_models/**/saved_models/
 ml_models/**/results/
 *.pt
+*.pth
 *.bin
 *.safetensors
 
@@ -25,4 +27,7 @@ ml_models/**/results/
 .DS_Store
 Thumbs.db
 
-ml_models/**/Dataset
+# Dataset Folders
+ml_models/**/Dataset/
+ml_models/audio_model/UK/
+ml_models/audio_model/USA/
