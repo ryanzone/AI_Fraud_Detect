@@ -3,11 +3,17 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model = DistilBertForSequenceClassification.from_pretrained("./saved_model")
+import os
+
+# Get directory of predict.py
+base_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(base_dir, "saved_model")
+
+model = DistilBertForSequenceClassification.from_pretrained(model_path)
 model.to(device)   # 🔥 move model to GPU
 model.eval()
 
-tokenizer = DistilBertTokenizer.from_pretrained("./saved_model")
+tokenizer = DistilBertTokenizer.from_pretrained(model_path)
 
 def predict_text(text):
     inputs = tokenizer(

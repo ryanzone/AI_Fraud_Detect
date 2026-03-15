@@ -3,14 +3,19 @@ import torch.nn.functional as F
 from PIL import Image
 from torchvision import transforms
 
-from model import get_model
+from vision_model.model import get_model
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+import os
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(base_dir, "saved_models", "best_model.pth")
+
 # Load model
 model = get_model(num_classes=2, freeze=False)
-model.load_state_dict(torch.load("saved_models/best_model.pth", map_location=device))
+model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
 model.to(device)
 model.eval()
 
@@ -36,10 +41,7 @@ def predict_image(image_path):
     fake_prob = probs[0][0].item()   # depends on class index
     real_prob = probs[0][1].item()
 
-    return {
-        "fake_probability": fake_prob,
-        "real_probability": real_prob
-    }
+    return fake_prob
 
 
 if __name__ == "__main__":
