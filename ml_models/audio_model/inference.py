@@ -3,8 +3,8 @@ import torchaudio
 import torchaudio.transforms as T
 import torch.nn as nn
 import os
-from model import get_model
-from dataset import load_audio
+from audio_model.model import get_model
+from audio_model.dataset import load_audio
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -78,6 +78,9 @@ def predict(audio_path, model_path="saved_models/best_model.pth"):
         
     pred_class = classes[torch.argmax(probabilities, dim=1).item()]
     print(f"Prediction: {pred_class}")
+    
+    # Return the probability of it being "fake audio" (fraud)
+    return probabilities[0, 0].item()
 
 
 if __name__ == "__main__":
