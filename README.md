@@ -21,14 +21,14 @@ A comprehensive system designed to detect AI-generated fraud content, including 
 ### 5. Computer Vision
 *   **OpenCV:** Image and video processing for deepfake detection.
 
-### 6. Audio Processing
-*   **Librosa:** Audio feature extraction for voice cloning detection.
+### 6. Computer Vision
+*   **OpenCV:** Image and video processing for deepfake detection.
 
 ### 7. NLP (SMS Detection)
 *   **NLTK:** Natural Language Toolkit for text analysis and fraud detection.
 
 ### 8. Database
-*   **ChromaDB:** Vector database for managing embeddings and retrieval.
+*   **ChromaDB:** Vector database for managing embeddings and retrieval. (See: [Vector DB Guide](backend/db/VECTOR_DB_GUIDE.md))
 
 ### 9. Security
 *   **JWT Authentication & AES Encryption:** Secure access and data protection.
@@ -38,6 +38,22 @@ A comprehensive system designed to detect AI-generated fraud content, including 
 *   **Git & GitHub:** Version control and collaboration.
 
 ## Directory Structure
-*   `backend/`: FastAPI application and API routes.
-*   `frontend/`: Next.js web application.
-*   `ml_models/`: ML model weights, data preprocessing, and inference scripts.
+
+```text
+AI_Fraud_Detect/
+├── .env                  # Environment configurations (API Keys)
+├── app.py                # Main application entry point
+├── requirements.txt      # Global project dependencies
+├── backend/              # API and Database layer
+│   ├── main.py           # FastAPI application
+│   ├── requirements.txt  # Backend specific dependencies
+│   └── db/               # Database logic and persistent storage
+├── ml_models/            # Machine Learning Modules
+│   ├── vision_model/     # Deepfake and image detection
+│   ├── text_model/       # LLM-generated text detection
+│   └── fusion/           # Multi-modal fusion logic
+├── frontend/             # Frontend application files
+├── static/               # Static assets (CSS, JS, Images)
+├── templates/            # HTML templates for visual interface
+└── venv/                 # Python virtual environment
+```

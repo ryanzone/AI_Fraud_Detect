@@ -4,9 +4,6 @@ pydantic
 python-multipart
 torch
 torchvision
-torchaudio
-transformers
-librosa
 opencv-python-headless
 scikit-learn
 sqlalchemy

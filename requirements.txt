@@ -19,10 +19,6 @@ torchaudio
 torchvision
 opencv-python
 
-# Audio
-torchaudio
-librosa
-imageio-ffmpeg
 
 # NLP Utilities
 nltk
