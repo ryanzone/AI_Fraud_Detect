@@ -223,12 +223,29 @@ class ChromaCloudDB:
             # Limit to the top 'n_results' unique documents
             .limit(n_results)
             # Tell it what data to give us back
-            .select(K.DOCUMENT, K.SCORE, "source_doc_id", "chunk_index")
+            .select(K.DOCUMENT, K.SCORE, "source_doc_id", "chunk_index", "risk_level")
         )
         
         # Step 2: Actually run the search
-        results = self.collection.search(search_request)
-        return results
+        search_response = self.collection.search(search_request)
+        
+        # Step 3: Parse the results (Format: {'ids': [[...]], 'documents': [[...]], ...})
+        final_results = []
+        
+        # Since we only did one query, we look at index 0 of the lists
+        ids = search_response.get('ids', [[]])[0]
+        docs = search_response.get('documents', [[]])[0]
+        metadatas = search_response.get('metadatas', [[]])[0]
+        scores = search_response.get('scores', [[]])[0]
+        
+        for i in range(len(ids)):
+            final_results.append({
+                "text": docs[i] if i < len(docs) else "",
+                "score": scores[i] if i < len(scores) else 0,
+                "metadata": metadatas[i] if i < len(metadatas) else {}
+            })
+            
+        return final_results
 
 # Let's test the connection right now!
 if __name__ == "__main__":
