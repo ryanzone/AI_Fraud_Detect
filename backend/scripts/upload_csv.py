@@ -34,8 +34,11 @@ def upload_csv(file_path, text_column, type_column, risk_column):
 
     print(f"Found {len(df)} rows to upload.")
     
-    # Process each row
-    for index, row in tqdm(df.iterrows(), total=len(df), desc="Uploading to ChromaDB"):
+    batch_size = 50
+    batch_entries = []
+    
+    # Process each row in batches
+    for index, row in tqdm(df.iterrows(), total=len(df), desc="Bulk Uploading to ChromaDB"):
         # 1. Get the text
         text = str(row[text_column])
         
@@ -45,7 +48,6 @@ def upload_csv(file_path, text_column, type_column, risk_column):
             
         # 2. Build Metadata
         metadata = {}
-        
         if type_column and type_column in df.columns:
             metadata["type"] = str(row[type_column])
         else:
@@ -55,20 +57,37 @@ def upload_csv(file_path, text_column, type_column, risk_column):
             metadata["risk_level"] = str(row[risk_column])
 
         # 3. Create a unique document ID
-        # Format: csv_[filename]_[row_number]
         base_filename = os.path.basename(file_path).replace('.csv', '')
         doc_id = f"csv_{base_filename}_row_{index}"
 
-        # 4. Upload to Chroma
+        # 4. Add to batch
+        batch_entries.append({
+            'text': text,
+            'metadata': metadata,
+            'doc_id': doc_id
+        })
+
+        # 5. If batch is full, upload it
+        if len(batch_entries) >= batch_size:
+            try:
+                # Suppress stdout during cloud request
+                sys.stdout = open(os.devnull, 'w')
+                db.add_batch(batch_entries)
+                sys.stdout = sys.__stdout__
+            except Exception as e:
+                sys.stdout = sys.__stdout__
+                print(f"\nFailed to upload batch ending at row {index}: {e}")
+            batch_entries = []
+
+    # Final batch (if any)
+    if batch_entries:
         try:
-            # We suppress the print statement in add_pattern by temporarily hiding stdout 
-            # so it doesn't mess up our tqdm progress bar.
             sys.stdout = open(os.devnull, 'w')
-            db.add_pattern(text=text, metadata=metadata, doc_id=doc_id)
+            db.add_batch(batch_entries)
             sys.stdout = sys.__stdout__
         except Exception as e:
             sys.stdout = sys.__stdout__
-            print(f"\nFailed to upload row {index}: {e}")
+            print(f"\nFailed to upload final batch: {e}")
 
     print("\n✅ Bulk upload complete!")
 
