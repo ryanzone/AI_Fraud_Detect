@@ -28,7 +28,7 @@ A comprehensive system designed to detect AI-generated fraud content, including 
 *   **NLTK:** Natural Language Toolkit for text analysis and fraud detection.
 
 ### 8. Database
-*   **ChromaDB:** Vector database for managing embeddings and retrieval. (See: [Vector DB Guide](backend/db/VECTOR_DB_GUIDE.md))
+*   **Supabase:** Backend-as-a-Service with PostgreSQL and pgvector for managing embeddings and structured fraud data.
 
 ### 9. Security
 *   **JWT Authentication & AES Encryption:** Secure access and data protection.
@@ -47,7 +47,7 @@ AI_Fraud_Detect/
 ├── backend/              # API and Database layer
 │   ├── main.py           # FastAPI application
 │   ├── requirements.txt  # Backend specific dependencies
-│   └── db/               # Database logic and persistent storage
+│   └── db/               # Database logic (Supabase integration)
 ├── ml_models/            # Machine Learning Modules
 │   ├── vision_model/     # Deepfake and image detection
 │   ├── text_model/       # LLM-generated text detection

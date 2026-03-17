@@ -13,7 +13,7 @@ This plan bridges the gap between the prototype and a production-ready system, d
 | **NLTK** | [nltk.org](https://www.nltk.org/) | [Data Downloads](https://www.nltk.org/data.html) |
 | **OpenCV** | [opencv.org](https://docs.opencv.org/4.x/) | [Tutorials](https://docs.opencv.org/4.x/d9/df8/tutorial_root.html) |
 | **Librosa** | [librosa.org](https://librosa.org/doc/latest/index.html) | [Example Notebooks](https://librosa.org/doc/latest/tutorials.html) |
-| **ChromaDB** | [docs.trychroma.com](https://docs.trychroma.com/) | [Get Started (Python)](https://docs.trychroma.com/getting-started) |
+| **Supabase** | [supabase.com/docs](https://supabase.com/docs) | [Python SDK Guide](https://supabase.com/docs/reference/python/introduction) |
 | **JWT** | [jwt.io](https://jwt.io/introduction) | [Debugger/Playground](https://jwt.io/) |
 | **AES/Security** | [cryptography.io](https://cryptography.io/en/latest/) | [AES Implementation Guide](https://cryptography.io/en/latest/hazmat/primitives/symmetric-encryption/) |
 | **Docker** | [docs.docker.com](https://docs.docker.com/) | [Download Docker Desktop](https://www.docker.com/products/docker-desktop/) |
@@ -49,9 +49,9 @@ This plan bridges the gap between the prototype and a production-ready system, d
 ---
 
 ### [Database & Vectors] - **Shivani**
-- **Resources:** [ChromaDB Docs](https://docs.trychroma.com/)
+- **Resources:** [Supabase Docs](https://supabase.com/docs)
 
-#### [NEW] [chroma_setup.py](file:///d:/programs/AI_Fraud_Detect/database/chroma_setup.py)
+#### [NEW] [supabase_client.py](file:///d:/programs/AI_Fraud_Detect/backend/db/supabase_client.py)
 - Vector database configuration.
 
 ---

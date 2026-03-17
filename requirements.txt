@@ -24,7 +24,6 @@ opencv-python
 nltk
 
 # Vector DB
-chromadb
 
 # Security
 PyJWT
